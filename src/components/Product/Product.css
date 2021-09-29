@@ -32,8 +32,14 @@
   margin-top: 10px;
   border-color: #a88734 #9c7e31 #846a29;
   color: #111;
+  cursor: pointer;
 }
 
 .product__raiting {
   display: flex;
+}
+
+.product > button:hover {
+  padding: 5px;
+  transition: 0.2s linear;
 }
