@@ -35,12 +35,13 @@ function App() {
   return (
     <BrowserRouter>
       <div className="app">
-        <Header />
         <Switch>
           <Route exact path="/checkout">
+            <Header />
             <Checkout />
           </Route>
           <Route exact path="/">
+            <Header />
             <Home />
           </Route>
           <Route exact path="/login">
