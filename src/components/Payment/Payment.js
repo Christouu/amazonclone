@@ -1,13 +1,4 @@
-<<<<<<< HEAD
-import React, { useState } from "react";
-import "./Payment.css";
-
-import { useStateValue } from "../../StateProvider";
-import { Link, useHistory } from "react-router-dom";
-import CheckoutProduct from "../CheckoutProduct/CheckoutProduct";
-=======
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React, { useEffect, useState, useHistory } from "react";
 import "./Payment.css";
 
 import CheckoutProduct from "../CheckoutProduct/CheckoutProduct";
@@ -15,10 +6,7 @@ import CheckoutProduct from "../CheckoutProduct/CheckoutProduct";
 import { useStateValue } from "../../StateProvider";
 import { Link } from "react-router-dom";
 
->>>>>>> 1d74a4fd493fdc3eec7dea063b3c687de12d1f29
 import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-import CurrencyFormat from "react-currency-format";
-import { getBasketTotal } from "../../reducer";
 import axios from "../../axios";
 
 import CurrencyFormat from "react-currency-format";
@@ -38,8 +26,6 @@ function Payment() {
   const [processing, setProcessing] = useState("");
   const [clientSecret, setClientSecret] = useState(true);
 
-<<<<<<< HEAD
-=======
   useEffect(() => {
     const getClientSecret = async () => {
       const response = await axios({
@@ -54,13 +40,11 @@ function Payment() {
     getClientSecret();
   }, [basket]);
 
->>>>>>> 1d74a4fd493fdc3eec7dea063b3c687de12d1f29
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     setProcessing(true);
 
-<<<<<<< HEAD
     const payload = await stripe
       .confirmCardPayment(clientSecret, {
         payment_method: {
@@ -79,17 +63,8 @@ function Payment() {
   };
 
   const handleChange = (e) => {
-=======
-    const payload = await stripe.confirmCardPayment(clientSecret, {
-      payment_method: {
-        card: elements.getElement(CardElement),
-      },
-    });
-  };
-
-  const handleChange = (e) => {
     e.preventDefault();
->>>>>>> 1d74a4fd493fdc3eec7dea063b3c687de12d1f29
+
     setDisabled(e.empty);
     setError(e.error ? e.error.message : "");
   };
@@ -130,17 +105,10 @@ function Payment() {
           <div className="payment__title">
             <h3>Payment Method</h3>
           </div>
-<<<<<<< HEAD
-          <div className="payment__details">
-            <form onSubmit={handleSubmit}>
-              <CardElement onChange={handleChange} />
-=======
-
           <div className="payment__details">
             <form onSubmit={handleSubmit}>
               <CardElement onChange={handleChange} />
 
->>>>>>> 1d74a4fd493fdc3eec7dea063b3c687de12d1f29
               <div className="payment__priceContainer">
                 <CurrencyFormat
                   renderText={(value) => (
