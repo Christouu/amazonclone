@@ -6,6 +6,7 @@ import Home from "./components/Home/Home";
 import Checkout from "./components/Checkout/Checkout";
 import Payment from "./components/Payment/Payment";
 import Login from "./components/Login/Login";
+import Orders from "./components/Orders/Orders";
 
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
@@ -54,6 +55,10 @@ function App() {
             <Elements stripe={promise}>
               <Payment />
             </Elements>
+          </Route>
+          <Route exact path="/orders">
+            <Header />
+            <Orders />
           </Route>
           <Route exact path="/login">
             <Login />
